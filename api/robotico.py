@@ -16,4 +16,7 @@ def call_chatgpt(content):
     message = completion.choices[0].message
     return message
 
-# print(call_chatgpt("Summarise this website https://www.leagueoflegends.com/en-gb/news/game-updates/patch-14-23-notes/"))
+with open("output.txt", "r", encoding="utf-8") as file:
+    content = file.read()
+
+print(call_chatgpt(f"Summarise this {content}"))
