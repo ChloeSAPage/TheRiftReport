@@ -13,7 +13,8 @@ print(r)
 
 soup = BeautifulSoup(r.content, 'html.parser')
 s = soup.find('div', id='patch-notes-container').get_text("|", strip=True)
+s = s[s.find('|Champions|'):s.find('|ARAM|')]
 
 # Save soup in file
-with open("output.txt", "w", encoding="utf-8") as file:
+with open("output3.txt", "w", encoding="utf-8") as file:
     file.write(s)
